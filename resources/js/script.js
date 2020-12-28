@@ -14,11 +14,25 @@ window.addEventListener('mousemove', (event) => {
 });
 
 $('#canvas').hide();
+if(window.innerHeight > window.innerWidth) {
+	$('#setup').hide();
+} else {
+	$('#warning').hide();
+}
+
 $('#begin').click(() => { 
 	$('#container').hide();
 	$("#audio")[0].play();
+
+	const fadeToStart = () => { 
+		$.when($('#canvas').fadeOut(1000))
+		 .done(() => $('#container').show());
+	};
+	setTimeout(fadeToStart, 135000);
+
 	$('#canvas').show();
 });
+
 
 let circles;
 const init = () => {
@@ -73,5 +87,40 @@ const drawGround = () => {
 
 const drawSnow = () => circles.forEach(circle => circle.update());
 
+let idx = 0;
+const changeBackground = () => {
+	const backgroundColors = [
+		'#9fabbd',
+		'#6d84a6',
+		'#344359',
+		'#363a40',
+		'#2e3369',
+		'#5a609c',
+		'#6f8cbf',
+		'#90acde',
+		'#424f4f',
+		'#215369',
+		'#4488a6',
+		'#4572ad',
+		'#5c95e0',
+		'#3d77ff',
+		'#46b7e3',
+		'#b9b2db',
+		'#e5e1f5',
+		'#2f0942',
+		'#6a2b8a',
+		'#ba65c2',
+		'#5d9ad4'
+	];
+
+	let color = backgroundColors[idx++];
+	if (idx > backgroundColors.length-1) {
+		idx = 0;
+	}
+
+	canvas.style.backgroundColor = color;
+};
+
 init();
 animate();
+setInterval(changeBackground, 3000);
