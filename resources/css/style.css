@@ -1,0 +1,63 @@
+html, body {
+  font-family: 'Forum', cursive;
+  height: 100%;
+	background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+canvas {
+  background-color: #9fabbd;
+  -webkit-animation: fadein 5s;
+     -moz-animation: fadein 5s;
+          animation: fadein 5s;
+
+  -webkit-transition: background-color 10s ease;
+     -moz-transition: background-color 10s ease;
+          transition: background-color 10s ease;
+}
+
+#container {
+  text-align: center;
+}
+
+p {
+  font-size: 28px;
+  color: white;
+}
+
+button {
+  font-family: 'Forum', cursive;
+  background-color: #899ab3;
+  border: none;
+  border-radius: 14px;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 32px;
+  opacity: 0.85;
+  transition: 0.5s;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
